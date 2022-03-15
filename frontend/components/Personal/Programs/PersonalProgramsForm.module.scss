@@ -1,0 +1,121 @@
+@import 'styles/common';
+
+.separator {
+  height: 16px;
+}
+
+.dragging {
+  box-shadow: 0 0 40px rgba(60, 67, 80, .3);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+  background: $white;
+  border-radius: 8px;
+  cursor: url(/images/symbols/move.svg), auto;
+  box-shadow: 0 0 40px rgba(60, 67, 80, 0);
+
+  &:hover {
+    transition: box-shadow .2s;
+    box-shadow: 0 0 40px rgba(60, 67, 80, .3);
+  }
+
+  &_accessible {
+    border: 2px solid $content;
+    box-shadow: none;
+
+    &:hover {
+      border: 2px solid $content;
+      box-shadow: none;
+    }
+  }
+
+  &__remove {
+    position: absolute;
+    top: 19px;
+    right: 19px;
+    padding: 5px;
+    cursor: pointer;
+
+    &__icon {
+      position: relative;
+      top: -2px;
+      width: calc(var(--font-base) * 1.875);
+      height: calc(var(--font-base) * 1.5);
+      padding: calc(var(--font-base) * .25);
+      border: 1px solid $border-tag;
+      border-radius: 4px;
+      fill: $graphite-text;
+
+      @include transition($transition-base);
+
+      &:hover {
+        background: $graphite;
+        border-color: $graphite;
+        fill: $white;
+      }
+    }
+  }
+
+  &__drag {
+    position: absolute;
+    top: calc((100% - var(--font-base) * 1.25) / 2);
+    left: 24px;
+    width: calc(var(--font-base) * .75);
+    height: calc(var(--font-base) * 1.25);
+    fill: $gray-text;
+  }
+
+  &__top {
+    margin: 0 0 12px 48px;
+    border-bottom: 1px solid $graphite-border;
+  }
+
+  &__bottom {
+    margin-left: 48px;
+  }
+
+  &__name {
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  &__code {
+    margin-bottom: 12px;
+    font-size: calc(var(--font-base) * .875);
+  }
+
+  &__selects {
+    margin-bottom: 0;
+    font-size: calc(var(--font-base) * .875);
+    color: $gray-text;
+
+    &__link {
+      margin: 0 28px 0 4px;
+      padding: 4px;
+      color: $link;
+      cursor: pointer;
+
+      &:hover {
+        color: $link-hovered;
+      }
+    }
+  }
+
+  &__priority {
+    padding: 4px 8px;
+    font-weight: 600;
+    font-size: calc(var(--font-base) * .75);
+    line-height: 1;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $graphite;
+    border-radius: 4px;
+
+    &_hidden {
+      color: $graphite;
+    }
+  }
+}

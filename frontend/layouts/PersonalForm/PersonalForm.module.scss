@@ -1,0 +1,77 @@
+@import 'styles/common';
+
+.container {
+  display: flex;
+
+  @include media-breakpoint-down(md) {
+    overflow-x: hidden;
+  }
+}
+
+.grid {
+  &__left {
+    padding-right: 20px;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &__middle {
+    padding: 0 12px;
+
+    @include media-breakpoint-down(lg) {
+      padding-right: 8px;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: 0 8px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      padding: 0;
+    }
+  }
+
+  &__right {
+    display: none;
+    padding-left: 20px;
+  }
+}
+
+.heading {
+  margin-bottom: 20px;
+}
+
+.btn {
+  &__prev {
+    font-family: var(--font-family-base);
+    border-color: $graphite;
+
+    &:focus,
+    &:hover {
+      border-color: $graphite;
+    }
+  }
+
+  &__next {
+    margin-left: auto;
+    font-family: var(--font-family-base);
+  }
+}
+
+.processing {
+  max-width: calc(var(--font-base) * 28);
+  font-size: calc(var(--font-base) * .875);
+  line-height: calc(var(--font-base) * 1.5);
+  color: $content-light;
+
+  &__link {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: underline;
+      color: $content-light;
+    }
+  }
+}
